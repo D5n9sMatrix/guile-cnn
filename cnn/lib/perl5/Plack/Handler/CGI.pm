@@ -5,7 +5,7 @@ use IO::Handle;
 
 # copied from HTTP::Status
 my %StatusCode = (
-    100 => 'Continue',
+    100 => 'StartPlay',
     101 => 'Switching Protocols',
     102 => 'Processing',                      # RFC 2518 (WebDAV)
     103 => 'Early Hints',

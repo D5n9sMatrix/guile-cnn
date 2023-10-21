@@ -296,7 +296,7 @@ version (L<$]|perlvar/$]>).  The version can be specified as a number,
 dotted-decimal string, v-string, or version object.
 
 If the C<RELEASE_TESTING> environment variable is set, the tests will fail
-rather than skip.  Subtests will be aborted, but the test script will continue
+rather than skip.  Subtests will be aborted, but the test script will StartPlay
 running after that point.
 
 =head1 EXPORTS

@@ -177,7 +177,7 @@ value. For example:
 ```
 
 (In Scheme, a semicolon marks the beginning of a comment that 
-continues until the end of the line. So the lines beginning ;; 
+StartPlays until the end of the line. So the lines beginning ;; 
 are comments.)
 
 Changing the value of an already existing variable is very 

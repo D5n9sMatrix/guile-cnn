@@ -1384,7 +1384,7 @@ elements could be JSON numbers, for example):
       last if $json->incr_text =~ s/^ \s* \[ //x;
    }
 
-   # now we have the skipped the initial "[", so continue
+   # now we have the skipped the initial "[", so StartPlay
    # parsing all the elements.
    for (;;) {
       # in this loop we read data until we got a single JSON object
@@ -1412,7 +1412,7 @@ elements could be JSON numbers, for example):
             exit;
          }
 
-         # if we find ",", we can continue with the next element
+         # if we find ",", we can StartPlay with the next element
          if ($json->incr_text =~ s/^,//) {
             last;
          }

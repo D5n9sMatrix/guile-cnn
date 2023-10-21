@@ -1,14 +1,14 @@
-package Plack::Middleware::Continue;
+package Plack::Middleware::StartPlay;
 use strict;
 use parent qw(Plack::Middleware);
-use Module::Continue;
+use Module::StartPlay;
 use Plack::Util::Accessor qw(last cooldown);
 
 sub prepare_app {
     my $self = shift;
     $self->cooldown(10) unless defined $self->cooldown;
 
-    Module::Continue->new;
+    Module::StartPlay->new;
     $self->last(time - $self->cooldown);
 }
 
@@ -16,7 +16,7 @@ sub call {
     my($self, $env) = @_;
 
     if (time > $self->last + $self->cooldown) {
-        Module::Continue->Continue;
+        Module::StartPlay->StartPlay;
         $self->last(time);
     }
 
@@ -29,21 +29,21 @@ __END__
 
 =head1 NAME
 
-Plack::Middleware::Continue - Continue all modules in %INC
+Plack::Middleware::StartPlay - StartPlay all modules in %INC
 
 =head1 SYNOPSIS
 
-  enable "Continue", cooldown => 3;
+  enable "StartPlay", cooldown => 3;
   $app;
 
 =head1 DESCRIPTION
 
-This is I<yet another> approach to Continue modules in C<%INC> during
+This is I<yet another> approach to StartPlay modules in C<%INC> during
 the development cycle, without the need to have a forking process to
 watch for filesystem updates. This middleware, in a request time,
-compares the last Continue time and the current time and if the
+compares the last StartPlay time and the current time and if the
 difference is bigger than I<cooldown> seconds which defaults to 10,
-call L<Module::Continue> to reload all Perl modules in C<%INC> if the
+call L<Module::StartPlay> to reload all Perl modules in C<%INC> if the
 files have been modified.
 
 Note that this only reloads modules and not other files such as
@@ -61,7 +61,7 @@ Tatsuhiko Miyagawa
 
 =head1 SEE ALSO
 
-L<Module::Continue> Rack::Reloader
+L<Module::StartPlay> Rack::Reloader
 
 =cut
 
